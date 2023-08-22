@@ -44,6 +44,8 @@ public class LocalizationGenerator extends LanguageProvider {
             });
         }
 
+        add("block.chemlib.chemist_fire_block", WordUtils.capitalize(String.format("%s %s", "Chemist", "Flame")));
+
         FluidRegistry.FLUID_TYPES.getEntries().stream().map(RegistryObject::get).forEach(fluidType -> {
             int density = fluidType.getDensity();
             String key = fluidType.getDescriptionId();

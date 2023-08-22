@@ -31,7 +31,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            jvmArgs '-XX:+AllowEnhancedClassRedefinition'
+            //jvmArgs '-XX:+AllowEnhancedClassRedefinition'
 
             mods {
                 chemlib {
@@ -44,7 +44,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            jvmArgs '-XX:+AllowEnhancedClassRedefinition'
+            //jvmArgs '-XX:+AllowEnhancedClassRedefinition'
 
             mods {
                 chemlib {
@@ -57,7 +57,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            jvmArgs '-XX:+AllowEnhancedClassRedefinition'
+            //jvmArgs '-XX:+AllowEnhancedClassRedefinition'
             args '--mod', "$archivesBaseName", '--all', '--output', file('src/generated/resources'), '--existing', file('src/main/resources')
 
             mods {
