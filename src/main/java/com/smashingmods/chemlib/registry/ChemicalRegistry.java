@@ -67,6 +67,9 @@ public class ChemicalRegistry {
                                 ItemRegistry.registerItemByType(registryObject, ChemicalItemType.INGOT, ItemRegistry.METALS_TAB);
                                 BlockRegistry.BLOCKS.register(String.format("%s_metal_block", elementName), () -> new ChemicalBlock(new ResourceLocation(ChemLib.MODID, elementName), ChemicalBlockType.METAL, BlockRegistry.METAL_BLOCKS, BlockRegistry.METAL_PROPERTIES));
                                 BlockRegistry.getRegistryObjectByName(String.format("%s_metal_block", elementName)).ifPresent(block -> ItemRegistry.fromChemicalBlock(block, new Item.Properties().tab(ItemRegistry.METALS_TAB)));
+
+                                //BlockRegistry.FIRE_BLOCK.register(String.format("%s_fire_block", elementName), () -> new ChemicalFireBlock(new ResourceLocation(ChemLib.MODID, elementName), ChemicalBlockType.ChemicalFire.FIRE, BlockRegistry.FIRE_BLOCKS, BlockRegistry.FIRE_PROPERTIES));
+                                //BlockRegistry.getRegistryFireObjectByName(String.format("%s_fire_block", elementName)).ifPresent(fire -> ItemRegistry.fromChemicalFire(fire, new Item.Properties().tab(ItemRegistry.MISC_TAB)));
                             }
                         }
                         ItemRegistry.registerItemByType(registryObject, ChemicalItemType.DUST, ItemRegistry.METALS_TAB);

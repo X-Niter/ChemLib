@@ -21,5 +21,8 @@ public class BlockTagGenerator extends ForgeRegistryTagsProvider<Block> {
             tag(BlockTags.MINEABLE_WITH_PICKAXE).add(blockRegistryObject.get());
             tag(BlockTags.NEEDS_STONE_TOOL).add(blockRegistryObject.get());
         });
+        BlockRegistry.FIRE_BLOCK.getEntries().forEach(blockRegistryObject -> {
+            tag(BlockTags.FIRE).add(blockRegistryObject.get());
+        });
     }
 }

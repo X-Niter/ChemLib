@@ -7,6 +7,7 @@ import com.smashingmods.chemlib.api.MetalType;
 import com.smashingmods.chemlib.api.addons.registry.AddonRegistry;
 import com.smashingmods.chemlib.api.addons.registry.ModTracker;
 import com.smashingmods.chemlib.common.blocks.ChemicalBlock;
+import com.smashingmods.chemlib.common.blocks.fire.ChemicalFireBlock;
 import com.smashingmods.chemlib.common.items.*;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.*;
@@ -163,6 +164,10 @@ public class ItemRegistry {
         return REGISTRY_BLOCK_ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof ChemicalBlockItem).map(item -> (ChemicalBlockItem) item).collect(Collectors.toList());
     }
 
+    public static List<ChemicalFireItem> getChemicalFireItems() {
+        return REGISTRY_BLOCK_ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof ChemicalFireItem).map(item -> (ChemicalFireItem) item).collect(Collectors.toList());
+    }
+
     public static List<BlockItem> getLiquidBlockItems() {
         return REGISTRY_BLOCK_ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof BlockItem).map(item -> (BlockItem) item).filter(blockItem -> blockItem.getBlock() instanceof LiquidBlock).collect(Collectors.toList());
     }
@@ -245,6 +250,10 @@ public class ItemRegistry {
 
     public static <B extends Block> void fromChemicalBlock(RegistryObject<B> pBlock, Item.Properties pProperties) {
         REGISTRY_BLOCK_ITEMS.register(pBlock.getId().getPath(), () -> new ChemicalBlockItem((ChemicalBlock) pBlock.get(), pProperties));
+    }
+
+    public static <B extends Block> void fromChemicalFire(RegistryObject<B> pFireBlock, Item.Properties pProperties) {
+        REGISTRY_BLOCK_ITEMS.register(pFireBlock.getId().getPath(), () -> new ChemicalFireItem((ChemicalFireBlock) pFireBlock.get(), pProperties));
     }
 
     public static <B extends Block> void fromBlock(RegistryObject<B> pBlock, Item.Properties pProperties) {

@@ -21,6 +21,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 public class ClientEventHandler {
 
     @SubscribeEvent
+    @SuppressWarnings("marked for removal")
     public static void onClientSetupEvent(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             FluidRegistry.getFluidsAsStream().forEach(fluid -> ItemBlockRenderTypes.setRenderLayer(fluid, RenderType.solid()));
@@ -34,12 +35,14 @@ public class ClientEventHandler {
         ItemRegistry.getCompounds().forEach(compound -> event.register(compound::getColor, compound));
         ItemRegistry.getChemicalItems().forEach(item -> event.register(item::getColor, item));
         ItemRegistry.getChemicalBlockItems().forEach(item -> event.register(item::getColor, item));
+        ItemRegistry.getChemicalFireItems().forEach(item -> event.register(item::getColor, item));
         FluidRegistry.getBuckets().forEach(bucket -> event.register(new DynamicFluidContainerModel.Colors(), bucket));
     }
 
     @SubscribeEvent
     public static void onBlockColorHandlerEvent(final RegisterColorHandlersEvent.Block event) {
         BlockRegistry.getAllChemicalBlocks().forEach(block -> event.register(block.getBlockColor(new ItemStack(block.asItem()), 0), block));
+        BlockRegistry.getAllChemicalFireBlocks().forEach(block -> event.register(block.getBlockColor(new ItemStack(block.asItem()), 0), block));
     }
 
 	@SubscribeEvent
